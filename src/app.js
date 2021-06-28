@@ -1,15 +1,17 @@
-/* eslint-disable indent */
-
 const express = require('express');
 
 const app = express();
 
-const { PORT } = process.env.PORT;
+const settings = require('./config/settings');
+
+const PORT = settings.port;
+
+require('dotenv').config();
 
 app.get('/', (req, res) => {
-  res.send('Welcome');
+  res.send('<h1 style="text-align:center;">Welcome</h1>');
 });
 
 app.listen(PORT, () => {
-  console.log(`Listening on port 3000`);
+  console.log(`Listening on port ${PORT}`);
 });
